@@ -1,19 +1,31 @@
 package org.example;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
-    @org.junit.jupiter.api.Test
-    void add() {
+    @ParameterizedTest
+
+    @CsvSource({
+            "3, 5, 8",
+            "0, 0 , 0",
+            "2, -1, 1",
+            "-1, -1, -2"
+    }
+    )
+
+    void add(int a , int b, int expected ) {
         // given
         Calculator calc = new Calculator();
 
         //when
-        int result = calc.add(3, 5);
+        int result = calc.add(a, b);
 
         //then
-        assertEquals(8, result);
+        assertEquals(expected, result);
 
     }
 
