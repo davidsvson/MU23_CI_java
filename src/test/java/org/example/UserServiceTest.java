@@ -3,8 +3,7 @@ package org.example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class UserServiceTest {
 
@@ -22,7 +21,7 @@ class UserServiceTest {
 
         //then
         assertEquals("David", name);
-
+        verify(userDau).findById(1);
 
     }
 
